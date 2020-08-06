@@ -5,6 +5,7 @@ def start_game():
   print("Welcome to the Number Guessing Game!")
   solution = random.randint(1,10)
   guess = input("Please enter a number between 1 to 10 as a guess  ")
+  guess = int(guess)
   number_Of_Attempts = 1
   while guess != solution:
     if guess > solution:
@@ -12,6 +13,7 @@ def start_game():
     elif guess < solution:
       print("it's higher")
     guess = input("enter a new number as a guess between 1 to 10   ")
+    guess = int(guess)
     number_Of_Attempts += 1
   print("Got it")
   print("It took you {} attempts".format(number_Of_Attempts))
