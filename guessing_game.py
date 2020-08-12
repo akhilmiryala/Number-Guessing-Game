@@ -4,22 +4,43 @@ import random
 def start_game():
   print("Welcome to the Number Guessing Game!")
   solution = random.randint(1,10)
-  guess = input("Please enter a number between 1 to 10 as a guess  ")
-  guess = int(guess)
+  guess = get_input_from_user()
   number_Of_Attempts = 1
   while guess != solution:
     if guess > solution:
       print("it's lower")
     elif guess < solution:
       print("it's higher")
-    guess = input("enter a new number as a guess between 1 to 10   ")
-    guess = int(guess)
+    guess = get_input_from_user()
     number_Of_Attempts += 1
   print("Got it")
   print("It took you {} attempts".format(number_Of_Attempts))
   print("The game is now ending")
   return
 
+def get_input_from_user():
+    while True:
+      try:
+        guess = input("Please enter a number between 1 to 10 as a guess  ")
+        guess = int(guess)
+      except NameError:
+        print('Plase enter an integer between 1 to 10')
+        continue
+      except TypeError:
+        print('Sorry, your guess must be an integer')
+      else:
+        if guess < 1:
+          print('guess must be between 1 to 10')
+          continue
+        elif guess > 10:
+          print('guess must be between 1 to 10')
+          continue
+        break
+        
+    return guess
+
+
+  
 
     # """Psuedo-code Hints
     
