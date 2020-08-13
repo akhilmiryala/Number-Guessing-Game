@@ -24,10 +24,12 @@ def get_input_from_user():
         guess = input("Please enter a number between 1 to 10 as a guess  ")
         guess = int(guess)
       except NameError:
-        print('Plase enter an integer between 1 to 10')
+        print('Variable not found. Please enter an integer between 1 to 10')
         continue
       except TypeError:
-        print('Sorry, your guess must be an integer')
+        print('Sorry that is not a valid type, your guess must be an integer')
+      except ValueError:
+        print('Sorry, that is not an appropriate value')
       else:
         if guess < 1:
           print('guess must be between 1 to 10')
